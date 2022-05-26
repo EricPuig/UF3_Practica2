@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Practica2">
+  <ClassDiagramComponents>
+    <Class name="Biblioteca" package="" visibility="public" xPosition="235.0" yPosition="562.0">
+      <Fields>
+        <Field name="copias" type="List&lt;Copia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Llibre" package="" visibility="public" isAbstract="true" xPosition="1021.0" yPosition="134.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="tipus" type="String" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="any" type="int" visibility="private"/>
+        <Field name="autor" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Autor" package="" visibility="public" xPosition="647.0" yPosition="458.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="nacionalitat" type="String" visibility="private"/>
+        <Field name="dataNaixement" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Copia" package="" visibility="public" xPosition="201.0" yPosition="39.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="estado" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Lector" package="" visibility="public" xPosition="607.0" yPosition="147.0">
+      <Fields>
+        <Field name="maximPrestec" type="int" visibility="private"/>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="nif" type="String" visibility="private"/>
+        <Field name="cantidadLibros" type="int" visibility="private"/>
+        <Field name="copiasLibro" type="List&lt;Copia&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="devolverLibro" returnType="void" visibility="public"/>
+        <Method name="cogerLibro" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="CogePrestado" source="Lector" target="Copia" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="Copia" target="Llibre"/>
+    <HasRelation name="Crea" source="Autor" target="Llibre" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Contiene" source="Biblioteca" target="Copia" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="seDirige" source="Lector" target="Biblioteca" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
